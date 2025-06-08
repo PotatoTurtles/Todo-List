@@ -142,26 +142,43 @@
             <form action="/" method="post">
                 <h2>Create Task</h2>
 
-                <label for="title">Task Name: </label>
-                <input type="text" name="title" id="title" placeholder="File Paperwork...">
-
-                <label for="date">Due By: </label>
-                <input type="date" id="date">
-
+                <div class="inputCont">
+                    <label for="title">Task Name: </label>
+                    <input type="text" name="title" id="title" placeholder="File Paperwork..."> 
+                </div>
+                <div class="inputCont">
+                    <label for="date">Due By: </label>
+                    <input type="date" id="date">
+                </div>
                 <fieldset>
                     <legend>Select a Project</legend>
 
-                    <input type="radio" id="one" checked name="project">
-                    <label for="one">Work</label>
+                    <div>
+                        <input type="radio" id="one" checked name="project">
+                        <label for="one">Work</label>
+                    </div>
 
-                    <input type="radio" id="two" name="project">
-                    <label for="two">Home</label>
+                    <div>
+                        <input type="radio" id="two" name="project">
+                        <label for="two">Home</label>
+                    </div>
 
-                    <input type="radio" id="three" name="project">
-                    <label for="three">School</label>
+                    <div>
+                        <input type="radio" id="three" name="project">
+                        <label for="three">School</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="newProject" name="project">
+                        <label for="four"><input type="text" placeholder="New Project" id="newInput"></label>
+                    </div>
                 </fieldset>
+                <div class="areaCont">
+                    <label for="desc">Task Desription</label>
+                    <textarea name="n/account-circle" id="desc" placeholder="Send Paperwork to Manager for further review and make sure to add..."></textarea>
+                </div>
             </form>
-            <button>Create New Task</button>
+            <button class="create">Create New Task</button>
         </div>
     </div>
 
