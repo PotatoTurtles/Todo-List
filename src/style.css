@@ -61,12 +61,34 @@ header{
     gap: 0.25vw;
     overflow: hidden;
     overflow-y: auto;
+
+    scrollbar-width: thin;
 }
+    .project{
+        display: grid;
+
+        grid: 10vh / 1fr;
+        grid-auto-rows: 10vh;
+        gap: 0.25vw;
+
+        background-color: rgb(49, 188, 195);
+    }
+    .projectTitle{
+        background-color: darkgreen;
+        padding: 2vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
     .taskTile{
         background-color: chartreuse;
         box-shadow: -0.1vh 0 0.3vh 0.1vh rgba(0, 0, 0, 0.621);
         border: 0px solid black;
         padding: 0.5vw;
+        margin-left: 2vw;
 
         border-right-width: 0.5vw;
         border-right-color: cadetblue;
@@ -75,13 +97,20 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+    }   
+        h4{
+            max-width: 80%;
+            text-overflow: ellipsis;
+        }
         button{
             background-color: transparent;
             border: 0;
 
             padding: 0.25vh 0.25vw;
             border-radius: 0.3vw;
+
+            font-size: medium;
+            font-weight: 600;
         }
         button:hover{
             background-color: rgba(0, 0, 0, 0.074);
@@ -104,3 +133,20 @@ svg{
     height: 6vh;
     width: auto;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .centered{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        height: 80%;
+        width: 60%;
+
+        background-color: indianred;
+    }
