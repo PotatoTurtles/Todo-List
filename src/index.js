@@ -8,8 +8,9 @@ const radio = [...document.querySelectorAll("input.rad")];
 const area = document.querySelector("textarea");
 const sub = document.querySelector(".create");
 const radIn = document.querySelector("#newInput");
+const sidebar = document.querySelector('.sidebar')
 
-sub.addEventListener('click',()=>console.log(date.value));
+
 
 
 function storageAvailable(type) {
@@ -46,29 +47,29 @@ let userStorage = {
                 "due":"2025-08-20",
                 "projName":"Project Title",
                 "description":"Idk u gotta do work homi pls. Ur finna get fired atp!"
+            },
+            "2nd":{
+                "due":"2026-11-5",
+                "projName":"Project Title",
+                "description":"It eez what it eez"
+            }
+        },
+        "Work":{
+            "Title":{
+                "due":"2025-08-20",
+                "projName":"Project Title",
+                "description":"Idk u gotta do work homi pls. Ur finna get fired atp!"
+            },
+            "2nd":{
+                "due":"2026-11-5",
+                "projName":"Project Title",
+                "description":"It eez what it eez"
             }
         }
     }
 };
 
-const allExpand = [...document.querySelectorAll('.projectTitle>button')];
-allExpand.forEach((val)=>val.addEventListener('click',()=>{
-    val.textContent=='^'?val.textContent='v':val.textContent='^';
-    choosePop(val.parentNode);
-}));
 
-
-const allPop = [...document.querySelectorAll(".right>button")];
-allPop.forEach((val)=>val.addEventListener('click',()=>{
-    if(val.textContent=='–'){
-        val.textContent='+';
-        unpopForm(val);
-    }
-    else{
-        val.textContent='–';
-        popToForm(val);
-    }
-}));
 
 function hideChildren(self){
     const hide = [...self.parentNode.querySelectorAll(".taskTile")];
@@ -139,6 +140,13 @@ function unpopForm(self){
     radIn.value="";
 }
 
+function checkPlus(){
+    let pop = allPop.filter((e)=>e.textContent=='–');
+    if(pop.length>0){
+        return pop[0]
+    }
+}
+
 function choosePop(self){
     if(checkDisplay(self)){
         showChildren(self);
@@ -148,3 +156,104 @@ function choosePop(self){
     }
 }
 
+function newProject(){
+    let proj = radIn.value;
+    userStorage["userProjects"][proj][inTitle.value]={
+        "due":date.value,
+        "projName":proj,
+        "description":area.value
+    }
+}
+
+//populate DOM from storage.
+function populateProject(projectName){
+    let container = document.createElement('div');
+    container.classList.add('project');
+        let topTile = document.createElement('div');
+        topTile.classList.add('projectTitle');
+            let top = document.createElement('h3');
+            top.textContent=projectName;
+            topTile.appendChild(top);
+
+            let flip = document.createElement('button');
+            flip.textContent='^';
+            topTile.appendChild(flip);
+        container.appendChild(topTile);
+
+        for(const task in userStorage['userProjects'][projectName]){
+            let tile = document.createElement('div');
+            tile.classList.add("taskTile");
+            tile.style.display='none';
+                let left = document.createElement('div');
+                left.classList.add('left');
+                    let title = document.createElement('h4');
+                    title.textContent=task;
+                    left.appendChild(title);
+
+                    let cont = document.createElement('div');
+                        "2025-08-20"
+                        let dueBy = document.createElement('div');
+                        let sorted = `${userStorage['userProjects'][projectName][task]["due"].slice(5,7)}/${userStorage['userProjects'][projectName][task]["due"].slice(8)}/${userStorage['userProjects'][projectName][task]["due"].slice(0,4)}`;
+                        dueBy.textContent=sorted
+                        cont.appendChild(dueBy);
+
+                        let check = document.createElement('input');
+                        check.type="checkbox"
+                        cont.appendChild(check);
+                    left.appendChild(cont);
+                tile.appendChild(left);
+
+                let right = document.createElement('div');
+                right.classList.add('right');
+                    let plus = document.createElement('button');
+                    plus.textContent='+';
+                    right.appendChild(plus);
+                tile.appendChild(right);
+            container.appendChild(tile);
+        }
+    sidebar.appendChild(container);
+}
+populateProject("Project Title");
+populateProject("Work");
+
+
+
+
+
+
+
+//eventListeners
+sub.addEventListener('click',()=>{
+    if(checkPlus()){
+        unpopForm(checkPlus());
+        checkPlus().textContent='+';
+    }
+    else{
+        let project = radio.filter(e=>e.checked)[0];
+        if(userStorage["userProjects"][project.value][inTitle.value]){
+
+        }
+    }
+});
+
+const allExpand = [...document.querySelectorAll('.projectTitle>button')];
+allExpand.forEach((val)=>val.addEventListener('click',()=>{
+    val.textContent=='^'?val.textContent='v':val.textContent='^';
+    choosePop(val.parentNode);
+}));
+
+const allPop = [...document.querySelectorAll(".right>button")];
+allPop.forEach((val)=>val.addEventListener('click',()=>{
+    if(val.textContent=='–'){
+        val.textContent='+';
+        unpopForm(val);
+    }
+    else{
+        if(checkPlus()){
+            unpopForm(checkPlus());
+            checkPlus().textContent='+';
+        }
+        val.textContent='–';
+        popToForm(val);
+    }
+}));
