@@ -5,21 +5,27 @@
 }
 
 body{
-    background-color: red;
+    background-color: rgb(233, 233, 233);
     width: 100vw;
     height: 100vh;
 
     display: grid;
     grid: 10vh 1vh 1fr 1vh/ 1fr 4fr;
 }
+body *{
+    color: rgb(233, 233, 233);
+}
+.darker{
+    color: black;
+}
 .container{
-    background-color: blue;
+    
     grid-area: 2/2/-1/-1;
 
 }
 header{
     grid-area: 1/1/2/3;
-    background-color: brown;
+    background-color: rgb(47, 107, 47);
 
     display: flex;
     justify-content: space-between;
@@ -43,7 +49,7 @@ header{
         outline: none;
         white-space: pre;
         overflow: hidden;
-        background-color: white;
+        background-color: rgb(233, 233, 233);
         color: black;
 
         text-align: center;
@@ -57,13 +63,16 @@ header{
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 1vw;
+    padding: 0.5vw;
 
-    gap: 0.25vw;
+    gap: 0.5vw;
     overflow: hidden;
     overflow-y: auto;
 
     scrollbar-width: thin;
+    background-color: rgb(117, 159, 126);
+    margin-left: 0.5vw;
+    border-radius: 0.5vw;
 }
     .project{
         display: grid;
@@ -74,33 +83,51 @@ header{
         grid-auto-rows: 10vh;
         gap: 0.25vw;
 
-        background-color: rgb(49, 188, 195);
     }
     .projectTitle{
-        background-color: darkgreen;
+        background-color: rgb(47, 107, 47);
         padding: 2vh;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        
+
+        border-radius: 0.5vw;
     }
     .taskTile{
-        background-color: chartreuse;
+        background-color: rgba(233, 233, 233, 0.834);
         box-shadow: -0.1vh 0 0.3vh 0.1vh rgba(0, 0, 0, 0.621);
         border: 0px solid black;
         padding: 0.5vw;
         margin-left: 2vw;
 
         border-right-width: 0.5vw;
-        border-right-color: cadetblue;
+        border-right-color: rgb(220, 220, 7);
         border-radius: 0 0.5vw 0.5vw 0;
 
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }   
+    }  
+    .taskTile *{
+        color: black;
+    }
+        .red{
+            border-right-color: rgb(180, 46, 46);
+        } 
+        .orange{
+            border-right-color: rgb(234, 105, 13);
+        }
+        .yellow{
+            border-right-color: rgb(220, 220, 7);
+        }
+        .green{
+            border-right-color: rgb(16, 188, 10);
+        }
+        .blue{
+            border-right-color: rgb(7, 114, 202);
+        }
         h4{
             max-width: 80%;
             text-overflow: ellipsis;
@@ -148,11 +175,14 @@ svg{
         align-items: stretch;
         flex-direction: column;
 
-        height: 80%;
+        height: 100%;
         width: 60%;
-        padding: 2vw;
+        padding: 1vw;
+        gap: 0.5vw;
 
-        background-color: indianred;
+        background-color: rgb(117, 159, 126);
+        border-radius: 0.5vw;
+        margin: 0.5vw;
     }
         form{
             display: flex;
@@ -161,9 +191,12 @@ svg{
             justify-content: space-evenly;
             align-items: center;
 
-            
-            background-color: chocolate;
         }
+            form>*{
+                background-color: rgb(47, 107, 47);
+                padding: 0.5vw;
+                border-radius: 0.5vw;
+            }
             .inputCont,.areaCont{
                 display: flex;
                 flex: 0 1 auto;
@@ -171,16 +204,17 @@ svg{
                 
 
                 width: 80%;
-                background-color: gold;
             }
                 input{
-                    background-color: rgba(0, 0, 0, 0.24);
+                    background-color: rgba(233, 233, 233, 0.778);
                     border: none;
                     border-bottom: 2px solid rgba(0, 0, 0, 0.582);
                     
 
                     padding: 0.1vw;
                     border-radius: 0.25vw;
+
+                    color: black;
 
                     
                 }
@@ -199,16 +233,41 @@ svg{
                     flex-grow: 1;
                     flex-shrink: 1;
 
+                    border-radius: 0.5vw;
+                    padding: 0.5vw;
+
+                    color: black;
+                }
+            .slideCont{
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+                .import{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                }
+                .slider{
+                    width: 100%;
                 }
             fieldset{
                 display: flex;
                 flex-flow: row wrap;
                 gap: 0.75vw;
-                justify-content: space-evenly;
+                justify-content: start;
                 padding: 0.25vw;
+                border: 0;
 
                 width: 80%;
             }
+                legend{
+                    background-color: rgb(47, 107, 47);
+                    padding: 0.25vw 0.5vw;
+                    border-radius: 0.5vw;
+                }
         .create{
-            background-color: lightsalmon;
+            background-color: rgb(47, 107, 47);
+            padding: 0.5vw;
         }
