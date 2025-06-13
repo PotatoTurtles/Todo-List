@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header>
+        <div class="logo">
+            <h2>JonesDo</h2>
+        </div>
+        <div class="user">
+            <div class="input-like" contenteditable="true" spellcheck="false" role="textbox" aria-label="Editable input">User</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>account-circle</title>
+                <path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />
+            </svg>
+        </div>
+    </header>
+    <div class="sidebar">
+        <!-- <div class="project">
+            <div class="projectTitle">
+                <h3>Project Title</h3>
+                <button>v</button>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="taskTile">
+                <div class="left">
+                    <h4>Title</h4>
+                    <div>
+                        <div class="dueBy">6/6/2025</div>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="right">
+                    <button>+</button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="container">
+        <div class="centered">
+            <form action="/" method="post">
+                <h2>Create Task</h2>
+
+                <div class="inputCont">
+                    <label for="title">Task Name: </label>
+                    <input type="text" name="title" id="title" placeholder="File Paperwork..."> 
+                </div>
+                <div class="inputCont">
+                    <label for="date">Due By: </label>
+                    <input type="date" id="date">
+                </div>
+                <div class="slideCont">
+                    <div class="import">
+                        <h5>Not Very Important</h5>
+                        <h5>Very Important</h5>
+                    </div>
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider">
+                </div>
+                <fieldset>
+                    <legend>Select a Project</legend>
+
+                    <div>
+                        <input type="radio" id="one" checked name="project" class="rad" value="Work">
+                        <label for="one" class="lab">Work</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="two" name="project" class="rad" value="Home">
+                        <label for="two" class="lab">Home</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="three" name="project" value="Project Title" class="rad">
+                        <label for="three" class="lab">Project Title</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="newProject" name="project" class="rad" value="New Project">
+                        <label for="four" class="lab"><input type="text" placeholder="New Project" id="newInput"></label>
+                    </div>
+                </fieldset>
+                <div class="areaCont">
+                    <label for="desc">Task Desription</label>
+                    <textarea name="n/account-circle" id="desc" placeholder="Send Paperwork to Manager for further review and make sure to add..."></textarea>
+                </div>
+            </form>
+            <button class="create">Submit Task</button>
+        </div>
+    </div>
+
+</body>
+</html>
